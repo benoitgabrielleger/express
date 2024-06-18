@@ -1,0 +1,35 @@
+### GETTING ALL
+
+GET http://localhost:3000/subscribers
+
+### GETTING ONE (working)
+
+GET http://localhost:3000/subscribers/667055df9bfe700d14408063
+
+### GETTING ONE (not working)
+
+GET http://localhost:3000/subscribers/667055df9bfe700d14408000
+
+### CREATING ONE
+
+POST http://localhost:3000/subscribers
+content-type: application/json
+
+{
+    "name": "Paula",
+    "subscribedToChannel": "Channel 1"
+}
+
+### DELETE ONE
+
+UPDATE http://localhost:3000/subscribers/667055df9bfe700d14408063
+
+### PATCH ONE
+
+PATCH http://localhost:3000/subscribers/667058089bfe700d1440806d
+content-type: application/json
+
+{
+    "name": "new Paul",
+    "subscribedToChannel": "Channel 2"
+}
