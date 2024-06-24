@@ -35,11 +35,8 @@ app.use('/subscribers', subscribersRouter)
 
 // MONGOOSE
 const uri = process.env.DATABASE_URL
-const connectOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-mongoose.connect(uri, connectOptions)
+
+mongoose.connect(uri)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err))
 
