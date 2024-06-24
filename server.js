@@ -18,19 +18,22 @@
 // Install "Rest Client" extension in Vscode.
 // You can use file with extension ".rest" or ".http" to send requests.
 
-const express = require('express')
-require('dotenv').config()
+import express from 'express'
+import dotenv from 'dotenv'
+import mongoose from 'mongoose'
+import subscribersRouter from './routes/subscribers.js'
+
+// Charger les variables d'environnement depuis le fichier .env
+dotenv.config();
 
 // EXPRESS
 const app = express()
 app.use(express.json())
 
 // ROUTES
-const subscribersRouter = require('./routes/subscribers')
 app.use('/subscribers', subscribersRouter)
 
 // MONGOOSE
-const mongoose = require('mongoose')
 const uri = process.env.DATABASE_URL
 const connectOptions = {
     useNewUrlParser: true,
@@ -38,7 +41,7 @@ const connectOptions = {
   }
 mongoose.connect(uri, connectOptions)
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+  .catch(err => console.error('Could not connect to MongoDB', err))
 
 // LISTEN
 app.listen(3000, () => console.log('Server Started'))

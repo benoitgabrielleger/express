@@ -20,6 +20,16 @@ content-type: application/json
     "subscribedToChannel": "Channel 1"
 }
 
+### CREATING ONE
+
+POST http://localhost:3000/subscribers
+content-type: application/json
+
+{
+    "name": "Paul",
+    "subscribedToChannel": "Channel 2"
+}
+
 ### DELETE ONE
 
 UPDATE http://localhost:3000/subscribers/667055df9bfe700d14408063

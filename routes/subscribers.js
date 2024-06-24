@@ -1,6 +1,7 @@
-const express = require('express')
+import express from 'express'
+import Subscriber from '../models/subscriber.js'
 const router = express.Router()
-const Subscriber = require('../models/subscriber')
+
 // GETTING ALL
 router.get('/', async (req, res) => {
 	try {
@@ -13,7 +14,6 @@ router.get('/', async (req, res) => {
 
 // GETTING ONE
 router.get('/:id', getSubscriber, (req, res) => {
-	// res.send(res.subscriber.name)
     res.json(res.subscriber)
 })
 
@@ -71,4 +71,5 @@ async function getSubscriber(req, res, next) {
     next()
 }
 
-module.exports = router
+// module.exports = router
+export default router
